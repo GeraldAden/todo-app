@@ -19,7 +19,7 @@ app.add_middleware(
 )
 
 # Database configuration
-DATABASE_URL = "sqlite:///./todos.db"
+DATABASE_URL = os.getenv('DATABASE_URL', "sqlite:///./todos.db")
 engine = create_engine(DATABASE_URL)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 Base = declarative_base()
